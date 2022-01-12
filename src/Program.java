@@ -35,7 +35,7 @@ public class Program {
     }
 
     private static boolean solveTheBoard(int [][] b){
-        for(int row = 0 ; row > GRID ; row++){
+        for(int row = 0 ; row < GRID ; row++){
             for(int column = 0 ; column < GRID ; column++){
                 if(b[row][column] == 0){
                     for(int number = 1 ; number <= GRID ; number++){
@@ -54,15 +54,17 @@ public class Program {
                 }
             }
         }
-        printBoard(b);
         return true;
     }
 
     private static void printBoard(int[][] b){
         for(int i = 0 ; i < GRID ; i++){
+            if(i%3 == 0 && i != 0) System.out.println("-------------");
             for(int j = 0 ; j < GRID ; j++) {
+                if(j%3 == 0) System.out.print("|");
                 System.out.print(b[i][j]);
             }
+            System.out.print("|");
             System.out.println();
         }
 
@@ -82,6 +84,6 @@ public class Program {
           {9,8,0,5,2,1,0,6,0}
         };
         solveTheBoard(board);
-        //printBoard(board);
+        printBoard(board);
     }
 }
